@@ -26,7 +26,21 @@ Construir e implantar o projeto
 
 Configurar o servidor para executar remoto:
 --------------------
-1. Adicionar o usuario do arquivo ``client/src/main/resources/jboss-ejb-client.properties`` no servidor wildfly com o comando: ``<PASTA DE INSTALACAO WILDFLY>/bin/add-user.sh -a -u nome_usuario -p senha``
+1. Adicionar o usuario do arquivo ``client/src/main/resources/jboss-ejb-client.properties`` 
+
+```
+remote.connectionprovider.create.options.org.xnio.Options.SSL_ENABLED=false
+
+remote.connections=default
+
+remote.connection.default.host=192.168.0.13
+remote.connection.default.port = 8080
+remote.connection.default.connect.options.org.xnio.Options.SASL_POLICY_NOANONYMOUS=false
+
+remote.connection.default.username=nome_usuario
+remote.connection.default.password=senha
+```
+2. No servidor wildfly com o comando: ``<PASTA DE INSTALACAO WILDFLY>/bin/add-user.sh -a -u nome_usuario -p senha``
 
 
 Desinstalar o EJB:
